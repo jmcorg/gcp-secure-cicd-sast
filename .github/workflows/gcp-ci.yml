@@ -14,21 +14,14 @@ jobs:
 
   sca:
     name: Software Composition Analysis (SCA) via Dependabot
-    permissions:
-      security-events: write
-      pull-requests: read
-    uses: jmcorg/reusableworkflows/.github/workflows/dependabot-prs.yml@main
-    secrets: inherit
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Dependabot is enabled for SCA"
+  sast:
+    name: Static Application Security Testing (SAST) # Static Application Security Testing
+    needs: sca
+    uses: jmcorg/reusableworkflows/.github/workflows/codeql-python.yml@main
 
-  # sast:
-  #   name: Static Application Security Testing (SAST) # Static Application Security Testing
-  #   needs: sca
-  #   # call your respective code-scan.ymls . For example: PHP needs to call shiftleft.yml
-  #   uses: ZEE-5/zee5-gcp-devsecops/.github/workflows/java-codeql.yml@master #For Java
-  #   # uses: ZEE-5/zee5-gcp-devsecops/.github/workflows/javascript-codeql.yml@master #For Javascript
-  #   # uses: ZEE-5/zee5-gcp-devsecops/.github/workflows/python-codeql.yml@master #For Python
-  #   # uses: ZEE-5/zee5-gcp-devsecops/.github/workflows/shift-left-php.yml@master #For PHP
-  #   # uses: ZEE-5/zee5-gcp-devsecops/.github/workflows/golang-codeql.yml@master #For Golang
   #   with: # "with" inputs are not required for non-Java codebases. Please delete the "with" block for non-Java.
   #     build_tool: mvn
   #     build_param: -B package --file pom.xml
