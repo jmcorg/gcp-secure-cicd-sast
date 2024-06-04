@@ -9,9 +9,7 @@ on:
     branches: [ "main"]  # Do not edit this line
   pull_request_target:
   workflow_dispatch:
-permission: 
-    actions: read
-    security-events: write
+
   
 jobs:
 
@@ -23,6 +21,9 @@ jobs:
   sast:
     name: Static Application Security Testing (SAST) # Static Application Security Testing
     needs: sca
+    permission: 
+      actions: read
+      security-events: write
     uses: jmcorg/reusableworkflows/.github/workflows/codeql-python.yml@main
 
   #   with: # "with" inputs are not required for non-Java codebases. Please delete the "with" block for non-Java.
