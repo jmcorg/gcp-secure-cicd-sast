@@ -14,11 +14,8 @@ jobs:
   sca:
     name: Software Composition Analysis (SCA) via Dependabot
     permissions:
-      contents: read
-      id-token: write
-      packages: write
-      actions: read
       security-events: write
+      pull-requests: read
     uses: jmcorg/reusableworkflows/.github/workflows/dependabot-prs.yml@main
 
   # sast:
