@@ -9,6 +9,9 @@ on:
     branches: [ "main"]  # Do not edit this line
   pull_request_target:
   workflow_dispatch:
+permission: 
+    actions: read
+    security-events: write
   
 jobs:
 
