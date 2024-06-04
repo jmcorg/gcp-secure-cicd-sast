@@ -28,31 +28,17 @@ jobs:
     name: Static Application Security Testing (SAST) # Static Application Security Testing
     needs: sca
     uses: jmcorg/reusableworkflows/.github/workflows/codeql-python.yml@main
+    secrets: inherit
 
-  #   with: # "with" inputs are not required for non-Java codebases. Please delete the "with" block for non-Java.
-  #     build_tool: mvn
-  #     build_param: -B package --file pom.xml
-  #     java_distribution: 'zulu'
-  #     java_version: '17'
-  #   secrets: inherit
+  buildimage-scan-attest:
+    name: Container image scan, policy enforcement and push to registry
+    needs: sast
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+      actions: read
+      security-events: write
+    uses: jmcorg/reusableworkflows/.github/workflows/buildimage-scan-attest@main
+    secrets: inherit
 
-  # container-scan-PaC-image-push:
-  #   name: Container image scan, policy enforcement and push to registry
-  #   needs: sast
-  #   permissions:
-  #     contents: read
-  #     id-token: write
-  #     packages: write
-  #     actions: read
-  #     security-events: write
-  #   uses: ZEE-5/zee5-gcp-devsecops/.github/workflows/prisma-scan-with-push-after-pac.yml@master
-  #   secrets: inherit
-
-  # binary-attestation:
-  #   name: Binary Authorization Workflow
-  #   needs:
-  #     - container-scan-PaC-image-push
-  #   uses: ZEE-5/zee5-gcp-devsecops/.github/workflows/binattestation.yml@master
-  #   with:
-  #     app_imageurl: ${{needs.container-scan-PaC-image-push.outputs.app_imageurl}}
-  #   secrets: inherit
