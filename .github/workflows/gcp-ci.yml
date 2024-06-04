@@ -17,6 +17,7 @@ jobs:
       security-events: write
       pull-requests: read
     uses: jmcorg/reusableworkflows/.github/workflows/dependabot-prs.yml@main
+    secrets: inherit
 
   # sast:
   #   name: Static Application Security Testing (SAST) # Static Application Security Testing
