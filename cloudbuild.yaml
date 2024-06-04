@@ -3,12 +3,12 @@
 steps:
   - name: 'us-central1-docker.pkg.dev/jmc-devsecops/pop-stats/sonar-scanner-cli:10.0'
     args:
-      - '-Dsonar.host.url=https://sonarcloud.io'
-      #- '-Dsonar.login={specify}'
-      - '-Dsonar.projectKey=jmcorg_gcp-secure-cicd-sast'
-      - '-Dsonar.organization=jmcorg-gcp-secure-cicd-sast'
-      - '-Dsonar.sources=.'
-  tags: ['gcp-secure-cicd-sast']
+    - '-Dsonar.host.url=https://sonarcloud.io'
+    #- '-Dsonar.login={specify}'
+    - '-Dsonar.projectKey=jmcorg_gcp-secure-cicd-sast'
+    - '-Dsonar.organization=jmcorg-gcp-secure-cicd-sast'
+    - '-Dsonar.sources=.'
+tags: ['gcp-secure-cicd-sast']
 #   # Build and tag using commit sha
 #   - name: 'gcr.io/cloud-builders/docker'
 #     args: ['build', '.', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA}', '-f', 'Dockerfile']
