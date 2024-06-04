@@ -13,7 +13,7 @@ jobs:
   sca:
     runs-on: ubuntu-latest
     name: Software Composition Analysis (SCA) via Dependabot
-    uses: jmcorg/reusableworkflows/blob/main/.github/workflows/dependabot-prs.yml@main
+    uses: jmcorg/reusableworkflows/.github/workflows/dependabot-prs.yml@main
 
   # sast:
   #   name: Static Application Security Testing (SAST) # Static Application Security Testing
