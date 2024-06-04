@@ -8,7 +8,7 @@ steps:
     - '-Dsonar.projectKey=jmcorg_gcp-secure-cicd-sast'
     - '-Dsonar.organization=jmcorg'
     - '-Dsonar.sources=.'
-tags: ['gcp-secure-cicd-sast']
+
   # Build and tag using commit sha
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '.', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA}', '-f', 'Dockerfile']
@@ -70,4 +70,4 @@ substitutions:
    _KMS_DIGEST_ALG: "SHA512"
    _NOTE_NAME: projects/jmc-devsecops/notes/secure-cicd-attestor-note
      #projects/jmc-devsecops/notes/vulnz-note
-    
+tags: ['gcp-secure-cicd-sast']   
