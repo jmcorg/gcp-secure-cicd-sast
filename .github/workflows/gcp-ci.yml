@@ -30,15 +30,15 @@ jobs:
     uses: jmcorg/reusableworkflows/.github/workflows/codeql-python.yml@main
     secrets: inherit
 
-  # buildimage-scan-attest:
-  #   name: Container image scan, policy enforcement and push to registry
-  #   needs: sast
-  #   permissions:
-  #     contents: read
-  #     id-token: write
-  #     packages: write
-  #     actions: read
-  #     security-events: write
-  #   uses: jmcorg/reusableworkflows/.github/workflows/buildimage-scan-attest@main
-  #   secrets: inherit
+  buildimage-scan-attest:
+    name: Container image scan, policy enforcement and push to registry
+    needs: sast
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+      actions: read
+      security-events: write
+    uses: jmcorg/reusableworkflows/.github/workflows/buildimage-scan-attest@main
+    secrets: inherit
 
