@@ -29,6 +29,7 @@ steps:
       docker push us-central1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA} &&
       docker image inspect us-central1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA} --format '{{index .RepoDigests 0}}' > image-digest.txt &&
       cat image-digest.txt
+      echo "done"
     id: push
   - name: us-central1-docker.pkg.dev/jmc-devsecops/pop-stats/kritis-signer:alter
    #gcr.io/$PROJECT_ID/kritis-signer
