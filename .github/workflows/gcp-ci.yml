@@ -19,35 +19,35 @@ permissions:
   
 jobs:
 
-  sca:
-    name: Software Composition Analysis (SCA) via Dependabot
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Dependabot is enabled for SCA"
-  sast:
-    name: Static Application Security Testing (SAST) # Static Application Security Testing
-    needs: sca
-    uses: jmcorg/devsecops-reusableworkflows/.github/workflows/codeql-python.yml@development
-    secrets: inherit
-  sonar-sast:
-      name: sonar-analysis 
-      needs: sca
-      permissions:
-        contents: read
-        actions: read
-        security-events: write
-      uses: jmcorg/devsecops-reusableworkflows/.github/workflows/sonarcloudscan.yml@development
-      secrets: inherit
-
-  # buildimage-scan-attest:
-  #   name: Container image scan, policy enforcement and push to registry
-  #   #needs: sast
-  #   permissions:
-  #     contents: read
-  #     id-token: write
-  #     packages: write
-  #     actions: read
-  #     security-events: write
-  #   uses: jmcorg/devsecops-reusableworkflows/.github/workflows/buildimage-scan-attest.yml@development
+  # sca:
+  #   name: Software Composition Analysis (SCA) via Dependabot
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo "Dependabot is enabled for SCA"
+  # sast:
+  #   name: Static Application Security Testing (SAST) # Static Application Security Testing
+  #   needs: sca
+  #   uses: jmcorg/devsecops-reusableworkflows/.github/workflows/codeql-python.yml@development
   #   secrets: inherit
+  # sonar-sast:
+  #     name: sonar-analysis 
+  #     needs: sca
+  #     permissions:
+  #       contents: read
+  #       actions: read
+  #       security-events: write
+  #     uses: jmcorg/devsecops-reusableworkflows/.github/workflows/sonarcloudscan.yml@development
+  #     secrets: inherit
+
+  buildimage-scan-attest:
+    name: Container image scan, policy enforcement and push to registry
+    #needs: sast
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+      actions: read
+      security-events: write
+    uses: jmcorg/devsecops-reusableworkflows/.github/workflows/buildimage-scan-attest.yml@development
+    secrets: inherit
 
