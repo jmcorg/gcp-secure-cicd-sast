@@ -29,16 +29,26 @@ jobs:
     needs: sca
     uses: jmcorg/devsecops-reusableworkflows/.github/workflows/codeql-python.yml@development
     secrets: inherit
+  sonar-sast:
+      name: sonar-analysis 
+      needs: sca
+      permissions:
+        contents: read
+        actions: read
+        security-events: write
+      uses: jmcorg/devsecops-reusableworkflows/.github/workflows/sonarcloudscan.yml@development
+      secrets: inherit
 
-  buildimage-scan-attest:
-    name: Container image scan, policy enforcement and push to registry
-    #needs: sast
-    permissions:
-      contents: read
-      id-token: write
-      packages: write
-      actions: read
-      security-events: write
-    uses: jmcorg/devsecops-reusableworkflows/.github/workflows/buildimage-scan-attest.yml@development
-    secrets: inherit
+
+  # buildimage-scan-attest:
+  #   name: Container image scan, policy enforcement and push to registry
+  #   #needs: sast
+  #   permissions:
+  #     contents: read
+  #     id-token: write
+  #     packages: write
+  #     actions: read
+  #     security-events: write
+  #   uses: jmcorg/devsecops-reusableworkflows/.github/workflows/buildimage-scan-attest.yml@development
+  #   secrets: inherit
 
