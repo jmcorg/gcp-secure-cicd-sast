@@ -39,7 +39,6 @@ jobs:
       uses: jmcorg/devsecops-reusableworkflows/.github/workflows/sonarcloudscan.yml@development
       secrets: inherit
 
-
   # buildimage-scan-attest:
   #   name: Container image scan, policy enforcement and push to registry
   #   #needs: sast
