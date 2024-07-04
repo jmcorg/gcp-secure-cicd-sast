@@ -27,7 +27,7 @@ jobs:
   sast:
     name: Static Application Security Testing (SAST) # Static Application Security Testing
     needs: sca
-    uses: jmcorg/reusableworkflows/.github/workflows/codeql-python.yml@main
+    uses: jmcorg/reusableworkflows/.github/workflows/codeql-python.yml@development
     secrets: inherit
 
   buildimage-scan-attest:
@@ -39,6 +39,6 @@ jobs:
       packages: write
       actions: read
       security-events: write
-    uses: jmcorg/reusableworkflows/.github/workflows/buildimage-scan-attest@main
+    uses: jmcorg/reusableworkflows/.github/workflows/buildimage-scan-attest@development
     secrets: inherit
 
