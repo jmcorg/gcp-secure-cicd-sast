@@ -39,6 +39,6 @@ jobs:
       packages: write
       actions: read
       security-events: write
-    uses: jmcorg/reusableworkflows/.github/workflows/buildimage-scan-attest@development
+    uses: jmcorg/reusableworkflows/.github/workflows/buildimage-scan-attest.yml@development
     secrets: inherit
 
