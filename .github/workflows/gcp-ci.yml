@@ -49,5 +49,7 @@ jobs:
       actions: read
       security-events: write
     uses: jmcorg/devsecops-reusableworkflows/.github/workflows/buildimage-scan-attest.yml@development
+    with:
+      dockerfilepath: "./app"
     secrets: inherit
 
