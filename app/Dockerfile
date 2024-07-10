@@ -15,6 +15,7 @@ USER 65532
 WORKDIR /home/nonroot
 COPY --chown=nonroot:nonroot --from=build /home/nonroot /home/nonroot
 
+
 # run container as nonroot user
 ENV PATH="/home/nonroot/venv/bin:$PATH"
 ENV PORT 8080
